@@ -61,6 +61,7 @@
                                                                <th>S No.</th>
                                                                <th>Name</th>
                                                                <th>Category</th>
+                                                               <th>Badge</th>
                                                                <th>Image</th>
                                                                <th>Action</th>
                                                         </tr>
@@ -73,7 +74,7 @@
                                                                <td><?= $i++; ?></td>
                                                                <td>{{$user->name}}</td>
                                                                <td>{{$user->category_name}}</td>
-
+                                                               <td>{{$user->badge}}</td>
                                                                <td> @if($user->imgURL)
                                                                       <img src="{{$user->imgURL}}" class="img-thumbnail" alt="No Image" width="65" height="65">
 
