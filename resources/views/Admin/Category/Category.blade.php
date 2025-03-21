@@ -188,7 +188,7 @@
                                                         <div class="form-group">
                                                                <label class="col-md-2 control-label">Category Image</label>
                                                                <div class="col-md-10">
-                                                                      <input type="file" name="category_image" required="required" class="form-control">
+                                                                      <input type="file" name="category_image" class="form-control">
                                                                </div>
                                                         </div>
 
