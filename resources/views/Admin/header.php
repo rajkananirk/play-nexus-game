@@ -43,7 +43,7 @@
 
                             <!-- LOGO -->
                             <div class="topbar-left">
-                                   <a href="#" class="logo"><span>Fish<span style="color: #ff1616">Map</span></span><i class="mdi mdi-layers"></i></a>
+                                   <a href="#" class="logo"><span>Play<span style="color: #ff1616">Nexus</span></span><i class="mdi mdi-layers"></i></a>
                             </div>
 
                             <!-- Button mobile view to collapse sidebar menu -->
