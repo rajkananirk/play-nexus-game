@@ -60,6 +60,7 @@
                                                         <tr>
                                                                <th>S No.</th>
                                                                <th>Title</th>
+                                                               <th>Slug</th>
                                                                <th>Image</th>
                                                                <th>Action</th>
                                                         </tr>
@@ -71,7 +72,8 @@
                                                         <tr>
                                                                <td><?= $i++; ?></td>
                                                                <td>{{$user->category_name}}</td>
-                                                               
+                                                               <td>{{$user->category_slug}}</td>
+
                                                                <td> @if($user->category_image)
                                                                       <img src="{{$user->category_image}}" class="img-thumbnail" alt="No Image" width="65" height="65">
 
@@ -125,6 +127,14 @@
                                                                       <input type="text" name="category_name" required="required" class="form-control" placeholder="Enter a Title">
                                                                </div>
                                                         </div>
+
+                                                        <div class="form-group">
+                                                               <label class="col-md-2 control-label">Category Slug</label>
+                                                               <div class="col-md-10">
+                                                                      <input type="text" name="category_slug" required="required" class="form-control" placeholder="Enter a Slug">
+                                                               </div>
+                                                        </div>
+
                                                         <div class="form-group">
                                                                <label class="col-md-2 control-label">Category Image</label>
                                                                <div class="col-md-10">

@@ -45,9 +45,14 @@ class CategoryController extends BaseController {
                      $trending_id = $request->category_id;
                      $title = $request->category_name;
                      $category_type = $request->category_type;
+                     $slug = $request->category_slug;
 
                      if ($title) {
                             $update_data['category_name'] = $title;
+                     }
+
+                     if ($slug) {
+                            $update_data['category_slug'] = $slug;
                      }
 
                      if ($request->hasFile('category_image')) {
@@ -95,9 +100,11 @@ class CategoryController extends BaseController {
                             $cover_photo = '';
                      }
                      $title = $request->category_name;
+                     $slug = $request->category_slug;
                      $of_activity = new Mdl_category();
                      $of_activity->category_name = $title;
                      $of_activity->category_image = $cover_photo;
+                     $of_activity->category_slug = $slug;
                      $of_activity->save();
                      return redirect()->back()->with('success', "User Updated Successfully");
               } else {
