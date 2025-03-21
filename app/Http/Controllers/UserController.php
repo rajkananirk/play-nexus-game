@@ -98,7 +98,7 @@ class UserController extends BaseController {
 
               $user = Mdl_games::where('badge', 'trending')->inRandomOrder()->orderBy('game_id', 'desc')->limit(10)->get();
 
-              return $this->sendResponse(1, 'Game List successfully', $user);
+              return $this->sendResponse(1, 'Game List successfully', $user); 
        }      
 
        public function get_new_game_list(Request $request) {

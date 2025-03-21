@@ -20,7 +20,7 @@
 
 
                             <li class="has_sub">
-                                   <a href="{{ url('games') }}" class="waves-effect"><i class="fa fa-home"></i><span>Games</span> </a>
+                                   <a href="{{ url('games') }}" class="waves-effect"><i class="fa fa-gamepad"></i><span>Games</span> </a>
                             </li>
                           
 
