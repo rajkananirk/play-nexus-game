@@ -95,6 +95,22 @@
                                                                       </select>
                                                                </div>
                                                         </div>
+                                                        <div class="form-group">
+                                                               <label class="col-md-2 control-label">Badge <span class="text-danger">*</label>
+                                                               <div class="col-md-10">
+                                                                      <select name="badge" required="" class="form-control" id="badge">
+                                                                             <option value="new" {{ $data->badge == 'new' ? 'selected' : '' }}>New</option>
+                                                                             <option value="hot" {{ $data->badge == 'hot' ? 'selected' : '' }}>Hot</option>
+                                                                             <option value="top" {{ $data->badge == 'top' ? 'selected' : '' }}>Top</option>
+                                                                             <option value="trending" {{ $data->badge == 'trending' ? 'selected' : '' }}>Trending</option>
+                                                                             <option value="popular" {{ $data->badge == 'popular' ? 'selected' : '' }}>Popular</option>
+                                                                             <option value="featured" {{ $data->badge == 'featured' ? 'selected' : '' }}>Featured</option>
+                                                                             <option value="recommended" {{ $data->badge == 'recommended' ? 'selected' : '' }}>Recommended</option>
+                                                                             <option value="upcoming" {{ $data->badge == 'upcoming' ? 'selected' : '' }}>Upcoming</option>
+                                                                             <option value="coming soon" {{ $data->badge == 'coming soon' ? 'selected' : '' }}>Coming Soon</option>
+                                                                      </select>
+                                                               </div>
+                                                        </div>
 
                                                         <div class="form-group">
                                                                <label class="col-md-2 control-label">Description</label>

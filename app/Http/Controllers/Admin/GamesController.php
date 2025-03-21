@@ -63,6 +63,7 @@ class GamesController extends BaseController {
                      $imgURL = $request->imgURL;
                      $redirectURL = $request->redirectURL;
                      $iframe = $request->iframe;
+                     $badge = $request->badge;
                      $description = $request->description;
 
                      // echo "<pre>";
@@ -80,6 +81,10 @@ class GamesController extends BaseController {
 
                      if ($imgURL) {
                             $update_data['imgURL'] = $imgURL;
+                     }
+
+                     if ($badge) {
+                            $update_data['badge'] = $badge;
                      }
 
                      if ($redirectURL) {
@@ -121,6 +126,7 @@ class GamesController extends BaseController {
               if (Session::get('login')) {
                      $name = $request->name;
                      $imgURL = $request->imgURL;
+                     $badge = $request->badge;
                      $redirectURL = $request->redirectURL;
                      $iframe = $request->iframe;
                      $category_id = $request->category_id;
@@ -132,6 +138,7 @@ class GamesController extends BaseController {
                      $of_activity->iframe = $iframe;
                      $of_activity->category_id = $category_id;
                      $of_activity->description = $description;
+                     $of_activity->badge = $badge;
                      $of_activity->save();
                      return redirect()->back()->with('success', "Games Updated Successfully");
               } else {

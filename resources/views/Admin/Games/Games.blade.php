@@ -155,6 +155,22 @@
                                                                       </select>
                                                                </div>
                                                         </div>
+                                                        <div class="form-group">
+                                                               <label class="col-md-2 control-label">Badge <span class="text-danger">*</label>
+                                                               <div class="col-md-10">
+                                                                      <select name="badge" required="" class="form-control" id="badge">
+                                                                             <option value="new">New</option>
+                                                                             <option value="hot">Hot</option>
+                                                                             <option value="top">Top</option>
+                                                                             <option value="trending">Trending</option>
+                                                                             <option value="popular">Popular</option>
+                                                                             <option value="featured">Featured</option>
+                                                                             <option value="recommended">Recommended</option>
+                                                                             <option value="upcoming">Upcoming</option>
+                                                                             <option value="coming soon">Coming Soon</option>
+                                                                      </select>
+                                                               </div>
+                                                        </div>
 
                                                         <div class="form-group">
                                                                <label class="col-md-2 control-label">Description</label>
