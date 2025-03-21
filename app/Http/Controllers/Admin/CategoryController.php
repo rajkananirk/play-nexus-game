@@ -49,9 +49,6 @@ class CategoryController extends BaseController {
                      if ($title) {
                             $update_data['category_name'] = $title;
                      }
-                     if ($category_type) {
-                            $update_data['category_type'] = $category_type;
-                     }
 
                      if ($request->hasFile('category_image')) {
 
@@ -101,7 +98,6 @@ class CategoryController extends BaseController {
                      $of_activity = new Mdl_category();
                      $of_activity->category_name = $title;
                      $of_activity->category_image = $cover_photo;
-                     $of_activity->category_type = $request->category_type;
                      $of_activity->save();
                      return redirect()->back()->with('success', "User Updated Successfully");
               } else {

@@ -104,8 +104,8 @@
                             <div class="col-lg-2 col-md-4 col-sm-6">
                                    <div class="card-box widget-box-one">
                                           <div class="wigdet-one-content">
-                                                 <p class="m-0 text-uppercase font-600 font-secondary text-overflow">Total Content</p>
-                                                 <h2 class="text-primary"><span data-plugin="counterup">15</span> </h2>
+                                                 <p class="m-0 text-uppercase font-600 font-secondary text-overflow">Total Category</p>
+                                                 <h2 class="text-primary"><span data-plugin="counterup"><?php echo $category[0]['total_category']; ?></span> </h2>
                                           </div>
                                    </div>
                             </div>
@@ -113,8 +113,8 @@
                             <div class="col-lg-2 col-md-4 col-sm-6">
                                    <div class="card-box widget-box-one">
                                           <div class="wigdet-one-content">
-                                                 <p class="m-0 text-uppercase font-600 font-secondary text-overflow">Total Category</p>
-                                                 <h2 class="text-success"><span data-plugin="counterup"><?php echo $category[0]['total_category']; ?></span></h2>
+                                                 <p class="m-0 text-uppercase font-600 font-secondary text-overflow">Total Games</p>
+                                                 <h2 class="text-success"><span data-plugin="counterup"><?php echo $games->count(); ?></span></h2>
                                           </div>
                                    </div>
                             </div>

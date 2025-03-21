@@ -4,10 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class fm_feed_image_favourite extends Model {
+class Mdl_games extends Model {
 
        //
-       protected $table = 'fm_feed_image_favourite';
+       protected $table = 'games';
        public $timestamps = false;
+       protected $primaryKey = 'id';
+
+    
 
 }

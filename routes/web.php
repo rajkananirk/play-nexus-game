@@ -4,9 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\CategoryController;
-use App\Http\Controllers\Admin\FeedController;
-use App\Http\Controllers\Admin\RankController;
-use App\Http\Controllers\Admin\NotificationController;
+use App\Http\Controllers\Admin\GamesController;
 
 /*
   |--------------------------------------------------------------------------
@@ -42,30 +40,8 @@ Route::post('delete-category', [CategoryController::class, 'DeleteCategory']);
 Route::post('add-category', [CategoryController::class, 'AddCategory']);
 
 //CONTENT
-Route::any('feed', [FeedController::class, 'GetFeed']);
-Route::any('youtube', [FeedController::class, 'GetYoutube']);
-Route::any('event', [FeedController::class, 'GetEvent']);
-Route::post('update-feed', [FeedController::class, 'UpdateFeed']);
-Route::post('delete-feed', [FeedController::class, 'DeleteFeed']);
-
-Route::any('top-event', [FeedController::class, 'GetTopEvent']);
-Route::any('add-feed', [FeedController::class, 'AddTopEvent']);
-
-//rank-system
-Route::get('rank-system', [RankController::class, 'GetRank']);
-Route::post('update-rank', [RankController::class, 'UpdateRank']);
-Route::post('add-rank', [RankController::class, 'AddRank']);
-Route::post('delete-rank', [RankController::class, 'DeleteRank']);
-
-
-Route::get('conatct-me', [UserController::class, 'ContactList']);
-
-Route::get('report-user', [UserController::class, 'ReportUserList']);
-Route::post('report-action', [UserController::class, 'ReportAction']);
-
-Route::get('report-comment', [UserController::class, 'ReportCommentList']);
-Route::post('report-action-comment', [UserController::class, 'ReportActionComment']);
-
-//NOTIFICATION
-Route::get('notification', [NotificationController::class, 'GetNotification']);
-Route::post('send_notification', [NotificationController::class, 'SendNotification']);
+Route::get('games', [GamesController::class, 'GetGames']);     
+Route::post('update-games', [GamesController::class, 'UpdateGames']);
+Route::post('delete-games', [GamesController::class, 'DeleteGames']);
+Route::post('add-games', [GamesController::class, 'AddGames']);
+Route::get('edit-games/{id}', [GamesController::class, 'EditGames']);

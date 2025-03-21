@@ -52,13 +52,10 @@ class AdminController extends BaseController {
               if (!empty($request->session()->has('login'))) {
 
                      $data = User::select(DB::raw("count(id)as total_user"))->get()->toArray();
-                     $feed = \App\Models\fm_all_feed::where('feed_type', 1)->get()->count();
-                     $yotube_feed = \App\Models\fm_all_feed::where('feed_type', 2)->get()->count();
-                     $event_feed = \App\Models\fm_all_feed::where('feed_type', 3)->get()->count();
-                     $parking_feed = \App\Models\fm_all_feed::where('feed_type', 4)->get()->count();
-                     $category = \App\Models\Mdl_category::select(DB::raw("count(category_id)as total_category"))->get()->toArray();
+                     $category =   \App\Models\Mdl_category::select(DB::raw("count(category_id)as total_category"))->get()->toArray();
 
-                     return view("Admin/Dashboard")->with(compact('data', 'category', 'yotube_feed', 'feed', 'parking_feed', 'event_feed'));
+                     $games = \App\Models\Mdl_games::all();
+                     return view("Admin/Dashboard")->with(compact('data', 'category', 'games'));
               } else {
                      return Redirect::to('/');
               }

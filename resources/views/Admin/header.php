@@ -5,7 +5,7 @@
               <meta charset="utf-8">
               <meta name="viewport" content="width=device-width, initial-scale=1.0">
               <meta name="author" content="winwin">
-              <title>Fishmap - Admin Panel</title>
+              <title>Play Nexus - Admin Panel</title>
 
               <link href="<?php echo url('/'); ?>/public/web/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
               <link href="<?php echo url('/'); ?>/public/web/plugins/datatables/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />

@@ -60,7 +60,6 @@
                                                         <tr>
                                                                <th>S No.</th>
                                                                <th>Title</th>
-                                                               <th>Type</th>
                                                                <th>Image</th>
                                                                <th>Action</th>
                                                         </tr>
@@ -72,17 +71,8 @@
                                                         <tr>
                                                                <td><?= $i++; ?></td>
                                                                <td>{{$user->category_name}}</td>
-                                                               <td>
-
-                                                                      @if($user->category_type == 1)
-                                                                      <span class="label label-pink">Feed</span>
-                                                                      @elseif($user->category_type == 2)
-                                                                      <span class="label label-orange">Event</span>
-                                                                      @else
-                                                                      <span class="label label-success">Youtube</span>
-                                                                      @endif
-                                                               </td>
-                                                               <td> @if($user->category_imaged)
+                                                               
+                                                               <td> @if($user->category_image)
                                                                       <img src="{{$user->category_image}}" class="img-thumbnail" alt="No Image" width="65" height="65">
 
                                                                       @else
@@ -141,16 +131,6 @@
                                                                       <input type="file" name="category_image" class="form-control">
                                                                </div>
                                                         </div>
-                                                        <div class="form-group">
-                                                               <label class="col-md-2 control-label">Category type <span class="text-danger">*</label>
-                                                               <div class="col-md-10">
-                                                                      <select name="category_type" required="" class="form-control" id="category_type">
-                                                                             <option value="1" selected="">Feed</option>
-                                                                             <option value="3">Youtube</option>
-                                                                             <option value="2">Event</option>
-                                                                      </select>
-                                                               </div>
-                                                        </div>
 
                                                  </div>
                                                  <button type="submit" class="btn btn-success btn-sm w-sm waves-effect m-t-10 waves-light">Save</button>
@@ -194,27 +174,6 @@
                                                                </div>
                                                         </div>
 
-                                                        <div class="form-group">
-                                                               <label class="col-md-2 control-label">Category type <span class="text-danger">*</label>
-                                                               <div class="col-md-10">
-                                                                      <select name="category_type" required="" class="form-control">
-                                                                             @if($user->category_type == 1)
-                                                                             <option value="1" selected>Feed</option>
-                                                                             <option value="2">Youtube</option>
-                                                                             <option value="3">Event</option>
-                                                                             @elseif($user->category_type == 2)
-                                                                             <option value="1">Feed</option>
-                                                                             <option value="2" selected>Event</option>
-                                                                             <option value="3">Youtube</option>
-                                                                             @else
-                                                                             <option value="1">Feed</option>
-                                                                             <option value="2">Event</option>
-                                                                             <option value="3" selected>Youtube</option>
-
-                                                                             @endif
-                                                                      </select>
-                                                               </div>
-                                                        </div>
                                                  </div>
                                                  <button type="submit" class="btn btn-success btn-sm w-sm waves-effect m-t-10 waves-light">Save</button>
                                                  <button type="button" class="btn btn-danger btn-sm w-sm waves-effect m-t-10 waves-light" data-dismiss="modal">Cancel</button>

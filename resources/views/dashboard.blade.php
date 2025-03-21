@@ -8,7 +8,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
         <link rel="icon" type="image/png" sizes="16x16" href="public/assets/images/d.png">
-        <title>FishMap</title>
+        <title>Play Nexus</title>
         <link href="public/assets/dist/css/style.min.css" rel="stylesheet">
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>

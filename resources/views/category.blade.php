@@ -8,7 +8,7 @@
               <meta name="description" content="">
               <meta name="author" content="">
               <link rel="icon" type="image/png" sizes="16x16" href="public/assets/images/d.png">
-              <title>FishMap</title>
+              <title>Play Nexus</title>
               <link rel="stylesheet" type="text/css"
                     href="public/assets/node_modules/datatables.net-bs4/css/dataTables.bootstrap4.css">
               <link rel="stylesheet" type="text/css"
@@ -58,7 +58,6 @@
                                                                                            <th>Category id</th>
                                                                                            <th>Category name</th>
                                                                                            <th>Category image</th>
-                                                                                           <th>Category type</th>
                                                                                            <th>Action</th>
                                                                                     </tr>
                                                                              </thead>
@@ -68,18 +67,9 @@
                                                                                            <td>{{$data->category_id}}</td>
                                                                                            <td>{{$data->category_name}}</td>
                                                                                            <td>
-                                                                                                  <img src="http://147.182.175.164//fishmap/{{$data->category_image}}"class="center" style="width: 5%;vertical-align: middle">
+                                                                                                  <img src="http://147.182.175.164//Play Nexus/{{$data->category_image}}"class="center" style="width: 5%;vertical-align: middle">
                                                                                            </td>
-                                                                                           <td>
-                                                                                                  @if($data->category_type == 1)
-                                                                                                  feed
-                                                                                                  @elseif($data->category_type == 2)
-                                                                                                  event
-                                                                                                  @elseif($data->category_type == 3)
-                                                                                                  youtube
-                                                                                                  @else
-                                                                                                  @endif
-                                                                                           </td>
+                                                                                         
                                                                                            <td>
                                                                                                   <button type="button" style="background-color: #2a4073" class="btn btn-info waves-effect" alt="default" data-toggle="modal" data-target="#myModal{{$data->category_id}}" class="model_img img-responsive">Edit</button>
                                                                                                   <button type="button" class="btn btn-danger waves-effect waves-light" alt="default" data-toggle="modal" data-target="#myModalLabel{{$data->category_id}}" class="model_img img-responsive">Delete</button>
@@ -112,54 +102,7 @@
                                           </div>
                                    </div>
                                    @endforeach
-                                   @foreach($category as $value => $data)
-                                   <div id="myModal{{$data->category_id}}" class="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                          <div class="modal-dialog modal-lg">
-                                                 <div class="modal-content">
-                                                        <div class="modal-header">
-                                                               <h4 class="modal-title" id="myModalLabel">Category Edit</h4>
-                                                        </div>
-                                                        <form action="{{ url('update-category') }}" method="POST" enctype="multipart/form-data">
-                                                               @csrf
-                                                               <input type="hidden" name="category_id" value="{{$data->category_id}}" class="form-control">
-                                                               <div class="modal-body">
-                                                                      <div class="form-group">
-                                                                             <label>Category name</label><br>
-                                                                             <input type="text" name="category_name" value="{{$data->category_name}}" class="form-control">
-                                                                      </div>
-                                                                      <div class="form-group">
-                                                                             <label>Category image</label><br>
-                                                                             <input type="file" name="category_image" value="{{$data->category_image}}" class="form-control">
-                                                                      </div>
-                                                                      <div class="form-group">
-                                                                             <label>Category type</label><br>
-                                                                             <select class="form-control" name="category_type" id="myModal">
-                                                                                    @if($data->category_type == 1)
-                                                                                    <option value="1" selected>Feed</option>
-                                                                                    <option value="2">Event</option>
-                                                                                    <option value="3">youtube</option>
-                                                                                    @elseif($data->category_type == 2)
-                                                                                    <option value="2" selected>Event</option>
-                                                                                    <option value="1">Feed</option>
-                                                                                    <option value="3">youtube</option>
-                                                                                    @elseif($data->category_type == 3)
-                                                                                    <option value="3" selected>youtube</option>
-                                                                                    <option value="2">Event</option>
-                                                                                    <option value="1">Feed</option>
-                                                                                    @else
-                                                                                    @endif
-                                                                             </select>
-                                                                      </div>
-                                                                      <div class="modal-footer">
-                                                                             <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
-                                                                             <button type="submit" style="background-color: #2a4073" class="btn btn-danger waves-effect waves-light">Edit</button>
-                                                                      </div>
-                                                               </div>
-                                                        </form>
-                                                 </div>
-                                          </div>
-                                   </div>
-                                   @endforeach
+                                
                                    <div id="myCarousel" class="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                           <div class="modal-dialog modal-lg">
                                                  <div class="modal-content">

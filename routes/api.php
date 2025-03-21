@@ -63,7 +63,7 @@ Route::group(['middleware' => 'auth:api'], function () {
        Route::post('GetRankSystem', [FeedController::class, 'GetRankSystem']);
        Route::post('add_rank_data', [FeedController::class, 'add_rank_data']);
        Route::post('get_my_rank_system', [FeedController::class, 'get_my_rank_system']);
-       Route::post('GetFishmapUser', [FeedController::class, 'GetFishmapUser']);
+       Route::post('GetPlay NexusUser', [FeedController::class, 'GetPlay NexusUser']);
        Route::post('update_rank_status', [FeedController::class, 'update_rank_status']);
        Route::post('get_unseen_count', [FeedController::class, 'get_unseen_count']);
        Route::post('OwnerEventList', [FeedController::class, 'OwnerEventList']);

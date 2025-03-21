@@ -1,7 +1,7 @@
 </div> <!-- content -->
 
 <footer class="footer">
-       2021 © Fishmap.
+       2021 © Play Nexus.
 </footer>
 
 </div>

@@ -9,7 +9,7 @@
               <!-- App favicon -->
               <link rel="shortcut icon" href="<?php echo url('/'); ?>web/assets/images/favicon.ico">
               <!-- App title -->
-              <title>Fishmap - Admin Panel</title>
+              <title>Play Nexus - Admin Panel</title>
 
               <!-- App css -->
               <link href="<?php echo url('/'); ?>/public/web/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />

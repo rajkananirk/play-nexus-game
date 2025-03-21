@@ -91,14 +91,14 @@ class BaseController extends Controller {
               $arrayToSendv1 = array(
                   'registration_ids' => $firebaseToken,
                   "notification" => [
-                      "title" => 'Fishmap',
+                      "title" => 'Play Nexus',
                       "body" => $msg,
                       "msg" => $msg,
                       "sound" => true,
                       'badge' => $g_count,
                   ],
                   "data" => [
-                      "title" => 'Fishmap',
+                      "title" => 'Play Nexus',
                       "text" => $msg,
                       'notification_id' => $notification_id,
                       'type' => $type,
@@ -179,13 +179,13 @@ class BaseController extends Controller {
 //              $arrayToSendv1 = array(
 //                  'registration_ids' => $firebaseToken,
 //                  "notification" => [
-//                      "title" => 'Fishmap',
+//                      "title" => 'Play Nexus',
 //                      "body" => $msg,
 //                      "msg" => $msg,
 //                      "sound" => true,
 //                  ],
 //                  "data" => [
-//                      "title" => 'Fishmap',
+//                      "title" => 'Play Nexus',
 //                      "text" => $msg,
 //                      'notification_id' => $notification_id,
 //                      'type' => $type,

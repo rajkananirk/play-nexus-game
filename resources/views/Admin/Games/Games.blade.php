@@ -38,9 +38,9 @@
                      <div class="row">
                             <div class="col-xs-12">
                                    <div class="page-title-box">
-                                          <h4 class="page-title">Rank System</h4>
+                                          <h4 class="page-title">Games List</h4>
                                           <div class="pull-right">
-                                                 <a  class="btn btn-success pull-right" data-target="#_AddCategory" data-toggle="modal"><i class=" mdi mdi-playlist-plus"></i>&nbsp;Add Rank</a>
+                                                 <a  class="btn btn-success pull-right" data-target="#_AddCategory" data-toggle="modal"><i class=" mdi mdi-playlist-plus"></i>&nbsp;Add Games</a>
                                           </div>
                                           <div class="clearfix"></div>
                                    </div>
@@ -60,8 +60,8 @@
                                                         <tr>
                                                                <th>S No.</th>
                                                                <th>Name</th>
-                                                               <th>Point</th>
-                                                               <th>Limit Per/Day</th>
+                                                               <th>Category</th>
+                                                               <th>Image</th>
                                                                <th>Action</th>
                                                         </tr>
                                                  </thead>
@@ -71,17 +71,26 @@
                                                         @foreach ($data as $value => $user)
                                                         <tr>
                                                                <td><?= $i++; ?></td>
-                                                               <td>{{$user->rank_name}}</td>
-                                                               <td>{{$user->rank_point}}</td>
-                                                               <td>{{$user->limit_per_day}}</td>
+                                                               <td>{{$user->name}}</td>
+                                                               <td>{{$user->category_name}}</td>
+
+                                                               <td> @if($user->imgURL)
+                                                                      <img src="{{$user->imgURL}}" class="img-thumbnail" alt="No Image" width="65" height="65">
+
+                                                                      @else
+                                                                      @endif</td>
+
                                                                <td>
-                                                                      <button type="button" class="btn btn-info" data-toggle="modal" data-target="#_EditUser{{$user->rank_id}}">
+                                                                      <a href="{{url('edit-games/'.$user->game_id)}}" class="btn btn-info">
                                                                              <i class="mdi mdi-pencil"></i>
-                                                                      </button>
-                                                                      <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#_DeleteUser{{$user->rank_id}}">
+                                                                      </a>
+                                                                      <a href="{{url('delete-games/'.$user->game_id)}}" class="btn btn-danger">
                                                                              <i class="mdi mdi-delete"></i>
-                                                                      </button>
+                                                                      </a>
                                                                </td>
+
+
+
                                                         </tr>
                                                         @endforeach
 
@@ -95,16 +104,16 @@
               </div> <!-- container -->
 
        </div> <!-- content -->
-       <div id="_AddCategory" class="modal fade" role="dialog" style="background-color: #ffffff87;">
+       <div id="_AddCategory" class="modal fade modal-xxl" role="dialog" style="background-color: #ffffff87;">
               <div class="modal-dialog">
 
                      <!-- Modal content-->
                      <div class="modal-content">
                             <div class="modal-header">
                                    <button type="button" class="close text-white" data-dismiss="modal">&times;</button>
-                                   <h4 class="modal-title text-black">Add Category</h4>
+                                   <h4 class="modal-title text-black">Add Games</h4>
                             </div>
-                            <form class="form-horizontal" action="{{ url('add-rank') }}" method="post" enctype="multipart/form-data">
+                            <form class="form-horizontal" action="{{ url('add-games') }}" method="post" enctype="multipart/form-data">
                                    @csrf
 
                                    <div class="modal-body">
@@ -115,21 +124,45 @@
                                                         <div class="form-group">
                                                                <label class="col-md-2 control-label">Name</label>
                                                                <div class="col-md-10">
-                                                                      <input type="text" name="rank_name" required="required" class="form-control">
+                                                                      <input type="text" name="name" required="required" class="form-control" placeholder="Enter a Name">
                                                                </div>
                                                         </div>
                                                         <div class="form-group">
-                                                               <label class="col-md-2 control-label">Point</label>
+                                                               <label class="col-md-2 control-label">imgURL</label>
                                                                <div class="col-md-10">
-                                                                      <input type="text" name="rank_point" required="required" class="form-control">
+                                                                      <input type="text" name="imgURL" required="required" class="form-control" placeholder="Enter a imgURL">
                                                                </div>
                                                         </div>
                                                         <div class="form-group">
-                                                               <label class="col-md-2 control-label">Limit Per/Day</label>
+                                                               <label class="col-md-2 control-label">redirectURL</label>
                                                                <div class="col-md-10">
-                                                                      <input type="text" name="limit_per_day" required="required" class="form-control">
+                                                                      <input type="text" name="redirectURL" required="required" class="form-control" placeholder="Enter a redirectURL">
                                                                </div>
                                                         </div>
+                                                        <div class="form-group">
+                                                               <label class="col-md-2 control-label">iframe code</label>
+                                                               <div class="col-md-10">
+                                                                      <input type="text" name="iframe" required="required" class="form-control" placeholder="Enter a iframe code">
+                                                               </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                               <label class="col-md-2 control-label">Category type <span class="text-danger">*</label>
+                                                               <div class="col-md-10">
+                                                                      <select name="category_id" required="" class="form-control" id="category_id">
+                                                                             @foreach ($category as $value => $data)
+                                                                             <option value="{{$data->category_id}}">{{$data->category_name}}</option>
+                                                                             @endforeach
+                                                                      </select>
+                                                               </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                               <label class="col-md-2 control-label">Description</label>
+                                                               <div class="col-md-10">
+                                                                      <textarea name="description" id="html_editor" class="form-control">{{$data->description ?? ''}}</textarea>
+                                                               </div>
+                                                        </div>
+
                                                  </div>
                                                  <button type="submit" class="btn btn-success btn-sm w-sm waves-effect m-t-10 waves-light">Save</button>
                                                  <button type="button" class="btn btn-danger btn-sm w-sm waves-effect m-t-10 waves-light" data-dismiss="modal">Cancel</button>
@@ -139,86 +172,17 @@
                      </div>
               </div>
        </div>
-       @foreach ($data as $value => $user)
 
-       <div id="_EditUser{{$user->rank_id}}" class="modal fade" role="dialog" style="background-color: #ffffff87;">
-              <div class="modal-dialog">
-
-                     <!-- Modal content-->
-                     <div class="modal-content">
-                            <div class="modal-header">
-                                   <button type="button" class="close text-white" data-dismiss="modal">&times;</button>
-                                   <h4 class="modal-title text-black">Edit Rank</h4>
-                            </div>
-                            <form class="form-horizontal" action="{{ url('update-rank') }}" method="post" enctype="multipart/form-data">
-                                   @csrf
-                                   <input type="hidden" name="rank_id" class="form-control" value="{{$user->rank_id}}">
-
-                                   <div class="modal-body">
-                                          <div class="text-center">
-
-                                                 <div class="member-card">
-
-                                                        <div class="form-group">
-                                                               <label class="col-md-2 control-label">Name</label>
-                                                               <div class="col-md-10">
-                                                                      <input type="text" name="rank_name" required="required" class="form-control" value="{{$user->rank_name}}">
-                                                               </div>
-                                                        </div>
-                                                        <div class="form-group">
-                                                               <label class="col-md-2 control-label">Point</label>
-                                                               <div class="col-md-10">
-                                                                      <input type="text" name="rank_point" required="required" class="form-control" value="{{$user->rank_point}}">
-                                                               </div>
-                                                        </div>
-                                                        <div class="form-group">
-                                                               <label class="col-md-2 control-label">Limit Per/Day</label>
-                                                               <div class="col-md-10">
-                                                                      <input type="text" name="limit_per_day" required="required" class="form-control" value="{{$user->limit_per_day}}">
-                                                               </div>
-                                                        </div>
-                                                 </div>
-                                                 <button type="submit" class="btn btn-success btn-sm w-sm waves-effect m-t-10 waves-light">Save</button>
-                                                 <button type="button" class="btn btn-danger btn-sm w-sm waves-effect m-t-10 waves-light" data-dismiss="modal">Cancel</button>
-                                          </div>
-                                   </div>
-                            </form>
-                     </div>
-              </div>
-       </div>
-</div>
-@endforeach
-
-@foreach ($data as $value => $user)
-
-<div id="_DeleteUser{{$user->rank_id}}" class="modal fade" role="dialog" style="background-color: #ffffff87;">
-       <div class="modal-dialog">
-
-              <!-- Modal content-->
-              <div class="modal-content">
-                     <div class="modal-header">
-                            <button type="button" class="close text-white" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title text-black">Delete Rank</h4>
-                     </div>
-                     <form class="form-horizontal" action="{{ url('delete-rank') }}" method="post" enctype="multipart/form-data">
-                            @csrf
-                            <input type="hidden" name="rank_id" class="form-control" value="{{$user->rank_id}}">
-
-                            <div class="modal-body">
-                                   <div class="text-center">
-
-                                          <div class="member-card">
-
-
-                                          </div>
-                                          <button type="submit" class="btn btn-danger btn-sm w-sm waves-effect m-t-10 waves-light">Yes Delete it!</button>
-                                          <button type="button" class="btn btn-success btn-sm w-sm waves-effect m-t-10 waves-light" data-dismiss="modal">Cancel</button>
-                                   </div>
-                            </div>
-                     </form>
-              </div>
-       </div>
-</div>
-@endforeach
+       <script src="https://cdn.ckeditor.com/ckeditor5/40.1.0/classic/ckeditor.js"></script>
+       <script>
+              ClassicEditor
+                     .create(document.querySelector('#html_editor'), {
+                            toolbar: ['heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote', 'insertTable'],
+                            height: '300px'
+                     })
+                     .catch(error => {
+                            console.error(error);
+                     });
+       </script>
 
 @include('Admin.footer')
