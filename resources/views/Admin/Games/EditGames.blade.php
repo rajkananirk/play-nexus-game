@@ -98,7 +98,7 @@
                                                         <div class="form-group">
                                                                <label class="col-md-2 control-label">Badge <span class="text-danger">*</label>
                                                                <div class="col-md-10">
-                                                                      <select name="badge" required="" class="form-control" id="badge">
+                                                                      <select name="badge" class="form-control" id="badge">
                                                                              <option value="" {{ $data->badge == '' ? 'selected' : '' }}>Select Badge</option>
                                                                              <option value="new" {{ $data->badge == 'new' ? 'selected' : '' }}>New</option>
                                                                              <option value="hot" {{ $data->badge == 'hot' ? 'selected' : '' }}>Hot</option>

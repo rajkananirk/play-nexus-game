@@ -159,7 +159,7 @@
                                                         <div class="form-group">
                                                                <label class="col-md-2 control-label">Badge <span class="text-danger">*</label>
                                                                <div class="col-md-10">
-                                                                      <select name="badge" required="" class="form-control" id="badge">
+                                                                      <select name="badge" class="form-control" id="badge">
                                                                              <option value="">Select Badge</option>
                                                                              <option value="new">New</option>
                                                                              <option value="hot">Hot</option>
