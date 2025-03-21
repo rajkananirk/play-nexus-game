@@ -34,6 +34,10 @@ use App\Http\Controllers\FeedController;
  Route::post('get_latest_game_list', [UserController::class, 'get_latest_game_list']);
 
 
+ //API FOR ADMIN PANEL
+ Route::delete('delete-games/{id}',  [UserController::class, 'deleteGame']);
+  
+
 
 
 

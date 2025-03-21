@@ -21,6 +21,39 @@
               margin-top: 10px !important;
               margin-bottom: 18px !important;
        }
+
+       .badge-grid {
+              display: grid;
+              grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+              gap: 15px;
+              padding: 15px;
+              background-color: #f8f9fa;
+              border-radius: 5px;
+       }
+       
+       .badge-item {
+              display: flex;
+              align-items: center;
+              padding: 8px 12px;
+              background-color: white;
+              border: 1px solid #dee2e6;
+              border-radius: 4px;
+              transition: all 0.3s ease;
+       }
+       
+       .badge-item:hover {
+              box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+       }
+       
+       .badge-item input[type="checkbox"] {
+              margin-right: 8px;
+       }
+       
+       .badge-item label {
+              margin-bottom: 0;
+              cursor: pointer;
+              font-weight: normal;
+       }
 </style>
 
 @include('Admin.sidebar')
@@ -96,20 +129,57 @@
                                                                </div>
                                                         </div>
                                                         <div class="form-group">
+                                                               <label class="col-md-2 control-label">Show in which page? <span class="text-danger">*</label>
+                                                               <div class="col-md-10">
+                                                                      <div id="badge-container" class="badge-grid">
+                                                                            <input type="hidden" name="checkbox_validation" id="checkbox_validation" value="{{ $data->is_new == 1 ? 'checked' : '' }}">
+                                                                            <div class="badge-item">
+                                                                                <input type="checkbox" name="is_new" {{ $data->is_new == 1 ? 'checked' : '' }} value="1" id="is_new" class="badge-checkbox">
+                                                                                <label for="is_new">New</label>
+                                                                            </div>
+                                                                            <div class="badge-item">
+                                                                                <input type="checkbox" name="is_top" {{ $data->is_top == 1 ? 'checked' : '' }} value="1" id="is_top" class="badge-checkbox">
+                                                                                <label for="is_top">Top</label>
+                                                                            </div>
+                                                                            <div class="badge-item">
+                                                                                <input type="checkbox" name="is_trending" {{ $data->is_trending == 1 ? 'checked' : '' }} value="1" id="is_trending" class="badge-checkbox">
+                                                                                <label for="is_trending">Trending</label>
+                                                                            </div>
+                                                                            <div class="badge-item">
+                                                                                <input type="checkbox" name="is_popular" {{ $data->is_popular == 1 ? 'checked' : '' }}  value="1" id="is_popular" class="badge-checkbox">
+                                                                                <label for="is_popular">Popular</label>
+                                                                            </div>
+                                                                            <div class="badge-item">
+                                                                                <input type="checkbox" name="is_featured" {{ $data->is_featured == 1 ? 'checked' : '' }} value="1" id="is_featured" class="badge-checkbox">
+                                                                                <label for="is_featured">Featured</label>
+                                                                            </div>
+                                                                            <div class="badge-item">
+                                                                                <input type="checkbox" name="is_recommended" {{ $data->is_recommended == 1 ? 'checked' : '' }} value="1" id="is_recommended" class="badge-checkbox">
+                                                                                <label for="is_recommended">Recommended</label>
+                                                                            </div>
+                                                                           
+                                                                            <div class="badge-item">
+                                                                                <input type="checkbox" name="is_latest" {{ $data->is_latest == 1 ? 'checked' : '' }} value="1" id="is_latest" class="badge-checkbox">
+                                                                                <label for="is_latest">Latest</label>
+                                                                            </div>
+                                                                            <div class="badge-item">
+                                                                                <input type="checkbox" name="is_all" {{ $data->is_all == 1 ? 'checked' : '' }} value="1" id="is_all" class="badge-checkbox">
+                                                                                <label for="is_all">All</label>
+                                                                            </div>
+                                                                      </div>
+                                                                      <div id="checkbox-error" class="text-danger" style="display: none;">Please select at least one option</div>
+                                                               </div>
+                                                        </div>
+                                                        <div class="form-group">
                                                                <label class="col-md-2 control-label">Badge <span class="text-danger">*</label>
                                                                <div class="col-md-10">
                                                                       <select name="badge" class="form-control" id="badge">
                                                                              <option value="none" {{ $data->badge == 'none' ? 'selected' : '' }}>Select Badge</option>
                                                                              <option value="new" {{ $data->badge == 'new' ? 'selected' : '' }}>New</option>
                                                                              <option value="hot" {{ $data->badge == 'hot' ? 'selected' : '' }}>Hot</option>
-                                                                             <option value="top" {{ $data->badge == 'top' ? 'selected' : '' }}>Top</option>
                                                                              <option value="latest" {{ $data->badge == 'latest' ? 'selected' : '' }}>Latest</option>
                                                                              <option value="trending" {{ $data->badge == 'trending' ? 'selected' : '' }}>Trending</option>
                                                                              <option value="popular" {{ $data->badge == 'popular' ? 'selected' : '' }}>Popular</option>
-                                                                             <option value="featured" {{ $data->badge == 'featured' ? 'selected' : '' }}>Featured</option>
-                                                                             <option value="recommended" {{ $data->badge == 'recommended' ? 'selected' : '' }}>Recommended</option>
-                                                                             <option value="upcoming" {{ $data->badge == 'upcoming' ? 'selected' : '' }}>Upcoming</option>
-                                                                             <option value="coming soon" {{ $data->badge == 'coming soon' ? 'selected' : '' }}>Coming Soon</option>
                                                                       </select>
                                                                </div>
                                                         </div>

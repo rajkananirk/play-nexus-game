@@ -82,21 +82,21 @@ class UserController extends BaseController {
 
        public function get_recommended_game_list(Request $request) {
 
-              $user = Mdl_games::where('badge', 'recommended')->inRandomOrder()->orderBy('game_id', 'desc')->limit(10)->get();
+              $user = Mdl_games::where('is_recommended', 1)->inRandomOrder()->orderBy('game_id', 'desc')->limit(10)->get();
 
               return $this->sendResponse(1, 'Game List successfully', $user);
        }      
 
        public function get_popular_game_list(Request $request) {
 
-              $user = Mdl_games::where('badge', 'popular')->inRandomOrder()->orderBy('game_id', 'desc')->limit(10)->get();
+              $user = Mdl_games::where('is_popular', 1)->inRandomOrder()->orderBy('game_id', 'desc')->limit(10)->get();
 
               return $this->sendResponse(1, 'Game List successfully', $user);
        }      
 
        public function get_trending_game_list(Request $request) {
 
-              $user = Mdl_games::where('badge', 'trending')->inRandomOrder()->orderBy('game_id', 'desc')->limit(10)->get();
+              $user = Mdl_games::where('is_trending', 1)->inRandomOrder()->orderBy('game_id', 'desc')->limit(10)->get();
 
               return $this->sendResponse(1, 'Game List successfully', $user); 
        }      
@@ -117,9 +117,18 @@ class UserController extends BaseController {
 
        public function get_latest_game_list(Request $request) {
 
-              $user = Mdl_games::where('badge', 'latest')->orderBy('game_id', 'desc')->limit(10)->get();
+              $user = Mdl_games::orderBy('game_id', 'desc')->limit(10)->get();
 
               return $this->sendResponse(1, 'Game List successfully', $user);
+       }    
+       
+       public function deleteGame(Request $request, $id) {
+              $game = Mdl_games::where('game_id', $id)->first();
+              if ($game) {
+              $game = Mdl_games::where('game_id', $id)->delete();
+
+                  return $this->sendResponse(1, 'Game deleted successfully',$game );
+              }
        }      
 
 }

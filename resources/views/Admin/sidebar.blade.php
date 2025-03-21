@@ -9,7 +9,7 @@
                             <li class="menu-title"> NAVIGATION </li>
 
                             <li class="has_sub">
-                                   <a href="{{ url('dashboard') }}" class="waves-effect"><i class="mdi mdi-view-dashboard"></i> <span> Dashboard </span>
+                                   <a href="{{ url('dashboard') }}" class="waves-effect"><i class="mdi mdi-view-dashboard"></i> <span>Dashboard </span>
                                    </a>
                             </li>
 

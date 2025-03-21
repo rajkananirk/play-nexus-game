@@ -65,11 +65,18 @@ class GamesController extends BaseController {
                      $iframe = $request->iframe;
                      $badge = $request->badge;
                      $description = $request->description;
+                     $is_new = $request->is_new ? 1 : 0;
+                     $is_top = $request->is_top ? 1 : 0;
+                     $is_trending = $request->is_trending ? 1 : 0;
+                     $is_popular = $request->is_popular ? 1 : 0;
+                     $is_featured = $request->is_featured ? 1 : 0;
+                     $is_recommended = $request->is_recommended ? 1 : 0;
+                     $is_latest = $request->is_latest ? 1 : 0; 
+                     $is_all = $request->is_all ? 1 : 0;
 
-                     // echo "<pre>";
-                     // print_r($request->all());
-                     // echo "</pre>";
-                     // exit;
+
+
+                   
 
                      if ($name) {
                             $update_data['name'] = $name;
@@ -98,11 +105,29 @@ class GamesController extends BaseController {
                      if ($description) {
                             $update_data['description'] = $description;
                      }
+
+                            $update_data['is_new'] = $is_new;
+
+                            $update_data['is_top'] = $is_top;
+
+                            $update_data['is_trending'] = $is_trending;
+
+                            $update_data['is_popular'] = $is_popular;
+
+                            $update_data['is_featured'] = $is_featured;
+
+                            $update_data['is_recommended'] = $is_recommended;
+
+                            $update_data['is_latest'] = $is_latest;
+                            $update_data['is_all'] = $is_all;
+
                      
 
                      if (!empty($update_data)) {
                             Mdl_games::where('game_id', $game_id)->update($update_data);
                      }
+
+
 
                      return Redirect::to('/games');
               } else {
@@ -131,6 +156,17 @@ class GamesController extends BaseController {
                      $iframe = $request->iframe;
                      $category_id = $request->category_id;
                      $description = $request->description;
+                     $is_new = $request->is_new ? 1 : 0;
+                     $is_top = $request->is_top ? 1 : 0;
+                     $is_trending = $request->is_trending ? 1 : 0;
+                     $is_popular = $request->is_popular ? 1 : 0;
+                     $is_featured = $request->is_featured ? 1 : 0;
+                     $is_recommended = $request->is_recommended ? 1 : 0;
+                     $is_latest = $request->is_latest ? 1 : 0;
+                     $is_all = $request->is_all ? 1 : 0;
+
+                
+                    
                      $of_activity = new Mdl_games();
                      $of_activity->name = $name;
                      $of_activity->imgURL = $imgURL;
@@ -139,6 +175,14 @@ class GamesController extends BaseController {
                      $of_activity->category_id = $category_id;
                      $of_activity->description = $description;
                      $of_activity->badge = $badge;
+                     $of_activity->is_new = $is_new;
+                     $of_activity->is_top = $is_top;
+                     $of_activity->is_trending = $is_trending;
+                     $of_activity->is_popular = $is_popular;
+                     $of_activity->is_featured = $is_featured;
+                     $of_activity->is_recommended = $is_recommended;
+                     $of_activity->is_latest = $is_latest;
+                     $of_activity->is_all = $is_all;
                      $of_activity->save();
                      return redirect()->back()->with('success', "Games Updated Successfully");
               } else {
