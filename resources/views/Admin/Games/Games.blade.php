@@ -160,7 +160,7 @@
                                                                <label class="col-md-2 control-label">Badge <span class="text-danger">*</label>
                                                                <div class="col-md-10">
                                                                       <select name="badge" class="form-control" id="badge">
-                                                                             <option value="">Select Badge</option>
+                                                                             <option value="none">Select Badge</option>
                                                                              <option value="new">New</option>
                                                                              <option value="hot">Hot</option>
                                                                              <option value="top">Top</option>
