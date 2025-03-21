@@ -177,6 +177,14 @@
                                                                       <input type="text" name="category_name" required="required" class="form-control" value="{{$user->category_name}}">
                                                                </div>
                                                         </div>
+
+                                                        <div class="form-group">
+                                                               <label class="col-md-2 control-label">Category Slug</label>
+                                                               <div class="col-md-10">
+                                                                      <input type="text" name="category_slug" required="required" class="form-control" value="{{$user->category_slug}}">
+                                                               </div>
+                                                        </div>
+
                                                         <div class="form-group">
                                                                <label class="col-md-2 control-label">Category Image</label>
                                                                <div class="col-md-10">
