@@ -103,6 +103,7 @@
                                                                              <option value="new" {{ $data->badge == 'new' ? 'selected' : '' }}>New</option>
                                                                              <option value="hot" {{ $data->badge == 'hot' ? 'selected' : '' }}>Hot</option>
                                                                              <option value="top" {{ $data->badge == 'top' ? 'selected' : '' }}>Top</option>
+                                                                             <option value="latest" {{ $data->badge == 'latest' ? 'selected' : '' }}>Latest</option>
                                                                              <option value="trending" {{ $data->badge == 'trending' ? 'selected' : '' }}>Trending</option>
                                                                              <option value="popular" {{ $data->badge == 'popular' ? 'selected' : '' }}>Popular</option>
                                                                              <option value="featured" {{ $data->badge == 'featured' ? 'selected' : '' }}>Featured</option>
@@ -122,7 +123,7 @@
 
                                                  </div>
                                                  <button type="submit" class="btn btn-success btn-sm w-sm waves-effect m-t-10 waves-light">Save</button>
-                                                 <button type="button" class="btn btn-danger btn-sm w-sm waves-effect m-t-10 waves-light" data-dismiss="modal">Cancel</button>
+                                                 <a href="{{url('games')}}" class="btn btn-danger btn-sm w-sm waves-effect m-t-10 waves-light">Cancel</a>
                                           </div>
                                    </div>
                             </form>

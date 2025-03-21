@@ -170,6 +170,7 @@
                                                                              <option value="recommended">Recommended</option>
                                                                              <option value="upcoming">Upcoming</option>
                                                                              <option value="coming soon">Coming Soon</option>
+                                                                             <option value="latest">Latest</option>
                                                                       </select>
                                                                </div>
                                                         </div>
