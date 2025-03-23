@@ -15,7 +15,9 @@ use App\Http\Controllers\BaseController;
 
 class UserController extends BaseController {
 
+    
        public function get_category_list(Request $request) {
+   header("Access-Control-Allow-Origin: *");
 
 
               $user = Mdl_category::select('*', DB::raw('(SELECT COUNT(*) FROM games WHERE category_id = categories.category_id) as total_games'))->get();
@@ -24,6 +26,7 @@ class UserController extends BaseController {
        }
 
        public function get_all_game_list(Request $request) {
+   header("Access-Control-Allow-Origin: *");
 
               $user = Mdl_games::inRandomOrder()->orderBy('game_id', 'desc')->get();
 
@@ -31,6 +34,7 @@ class UserController extends BaseController {
        }
 
        public function get_game_by_id(Request $request) {
+   header("Access-Control-Allow-Origin: *");
 
               $validator = Validator::make($request->all(), [
                      'game_id' => 'required',
@@ -46,6 +50,7 @@ class UserController extends BaseController {
        }
 
        public function get_game_by_category_id(Request $request) {
+   header("Access-Control-Allow-Origin: *");
 
               $validator = Validator::make($request->all(), [
                      'category_id' => 'required',
@@ -61,6 +66,7 @@ class UserController extends BaseController {
        }
 
        public function get_game_by_search(Request $request) {
+   header("Access-Control-Allow-Origin: *");
 
               $validator = Validator::make($request->all(), [
                      'search' => 'required',
@@ -75,6 +81,7 @@ class UserController extends BaseController {
        }      
 
        public function get_home_game_list(Request $request) {
+   header("Access-Control-Allow-Origin: *");
 
               $user = Mdl_games::inRandomOrder()->orderBy('game_id', 'desc')->get();
 
@@ -82,6 +89,7 @@ class UserController extends BaseController {
        }
 
        public function get_recommended_game_list(Request $request) {
+   header("Access-Control-Allow-Origin: *");
 
               $user = Mdl_games::where('is_recommended', 1)->inRandomOrder()->orderBy('game_id', 'desc')->limit(10)->get();
 
@@ -89,6 +97,7 @@ class UserController extends BaseController {
        }      
 
        public function get_popular_game_list(Request $request) {
+   header("Access-Control-Allow-Origin: *");
 
               $user = Mdl_games::where('is_popular', 1)->inRandomOrder()->orderBy('game_id', 'desc')->limit(10)->get();
 
@@ -96,6 +105,7 @@ class UserController extends BaseController {
        }      
 
        public function get_trending_game_list(Request $request) {
+   header("Access-Control-Allow-Origin: *");
 
               $user = Mdl_games::where('is_trending', 1)->inRandomOrder()->orderBy('game_id', 'desc')->limit(10)->get();
 
@@ -103,6 +113,7 @@ class UserController extends BaseController {
        }      
 
        public function get_new_game_list(Request $request) {
+   header("Access-Control-Allow-Origin: *");
 
               $user = Mdl_games::inRandomOrder()->orderBy('game_id', 'desc')->limit(10)->get();
 
@@ -110,6 +121,7 @@ class UserController extends BaseController {
        }      
 
        public function get_recent_game_list(Request $request) {
+   header("Access-Control-Allow-Origin: *");
 
               $user = Mdl_games::orderBy('game_id', 'desc')->get();
 
@@ -117,6 +129,7 @@ class UserController extends BaseController {
        }      
 
        public function get_latest_game_list(Request $request) {
+   header("Access-Control-Allow-Origin: *");
 
               $user = Mdl_games::orderBy('game_id', 'desc')->limit(10)->get();
 
@@ -124,7 +137,8 @@ class UserController extends BaseController {
        }    
        
        public function deleteGame(Request $request, $id) {
-              $game = Mdl_games::where('game_id', $id)->first();
+          header("Access-Control-Allow-Origin: *");
+       $game = Mdl_games::where('game_id', $id)->first();
               if ($game) {
               $game = Mdl_games::where('game_id', $id)->delete();
 
