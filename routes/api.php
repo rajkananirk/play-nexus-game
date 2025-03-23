@@ -18,6 +18,10 @@ use App\Http\Controllers\FeedController;
   |
  */
 
+ Route::middleware(['cors'])->group(function () {
+  // API Route for deleting a game
+
+
  Route::post('get_category_list', [UserController::class, 'get_category_list']);
  Route::post('get_all_game_list', [UserController::class, 'get_all_game_list']);
  Route::post('get_game_by_id', [UserController::class, 'get_game_by_id']);
@@ -40,5 +44,5 @@ use App\Http\Controllers\FeedController;
 
 
 
-
+});
 

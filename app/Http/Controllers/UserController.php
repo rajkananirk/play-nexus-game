@@ -17,7 +17,6 @@ class UserController extends BaseController {
 
        public function get_category_list(Request $request) {
 
-              header("Access-Control-Allow-Origin: *");
 
               $user = Mdl_category::select('*', DB::raw('(SELECT COUNT(*) FROM games WHERE category_id = categories.category_id) as total_games'))->get();
 
