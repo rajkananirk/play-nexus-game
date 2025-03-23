@@ -15,7 +15,7 @@ return [
     |
     */
 
-     'paths' => ['api/*', 'sanctum/csrf-cookie'], 
+     'paths' => ['*', 'sanctum/csrf-cookie'], 
     'allowed_methods' => ['*'],
     'allowed_origins' => ['https://playsnexus.com'],
     'allowed_origins_patterns' => [],
