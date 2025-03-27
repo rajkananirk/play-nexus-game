@@ -50,6 +50,7 @@ class UserController extends BaseController {
        }
 
        public function get_game_by_category_id(Request $request) {
+              
    header("Access-Control-Allow-Origin: *");
 
               $validator = Validator::make($request->all(), [
