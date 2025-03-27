@@ -50,16 +50,9 @@ class UserController extends BaseController {
        }
 
        public function get_game_by_category_id(Request $request) {
-              
+
    header("Access-Control-Allow-Origin: *");
 
-              $validator = Validator::make($request->all(), [
-                     'category_id' => 'required',
-              ]);
-
-              if ($validator->fails()) {
-                     return $this->sendResponse(0, 'Validation Error', $validator->errors());
-              }
 
               $user = Mdl_games::where('category_id', $request->category_id)->inRandomOrder()->orderBy('game_id', 'desc')->get();
 
