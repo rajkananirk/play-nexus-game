@@ -62,7 +62,7 @@ class UserController extends BaseController {
        public function get_category_details(Request $request) {
    header("Access-Control-Allow-Origin: *");
 
-              $user = Mdl_category::where('category_id', $request->category_id)->first();
+              $user = Mdl_category::where('category_slug', $request->category_slug)->first();
 
               return $this->sendResponse(1, 'Category Details successfully', $user);
        }
