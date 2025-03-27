@@ -59,6 +59,14 @@ class UserController extends BaseController {
               return $this->sendResponse(1, 'Game List successfully', $user);
        }
 
+       public function get_category_details(Request $request) {
+   header("Access-Control-Allow-Origin: *");
+
+              $user = Mdl_category::where('category_id', $request->category_id)->first();
+
+              return $this->sendResponse(1, 'Category Details successfully', $user);
+       }
+
        public function get_game_by_search(Request $request) {
    header("Access-Control-Allow-Origin: *");
 

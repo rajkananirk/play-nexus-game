@@ -26,6 +26,8 @@ use App\Http\Controllers\FeedController;
  Route::post('get_game_by_category_id', [UserController::class, 'get_game_by_category_id']);
 
  Route::post('get_game_by_search', [UserController::class, 'get_game_by_search']);
+ Route::get('get_category_details', [UserController::class, 'get_category_details']);
+
 
  //HOME GAME API
  Route::post('get_home_game_list', [UserController::class, 'get_home_game_list']);
