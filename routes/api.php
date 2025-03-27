@@ -23,7 +23,7 @@ use App\Http\Controllers\FeedController;
  Route::post('get_category_list', [UserController::class, 'get_category_list']);
  Route::post('get_all_game_list', [UserController::class, 'get_all_game_list']);
  Route::post('get_game_by_id', [UserController::class, 'get_game_by_id']);
- Route::post('get_game_by_category_id', [UserController::class, 'get_game_by_category_id']);
+ Route::get('get_game_by_category_id', [UserController::class, 'get_game_by_category_id']);
 
  Route::post('get_game_by_search', [UserController::class, 'get_game_by_search']);
  Route::get('get_category_details', [UserController::class, 'get_category_details']);
