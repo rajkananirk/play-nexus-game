@@ -290,7 +290,7 @@
                             if (result.isConfirmed) {
 
                                    // Send delete request
-                                   fetch(`http://localhost/play-nexus-hub/api/delete-games/${gameId}`, {
+                                   fetch(`{{url('api/delete-games')}}/${gameId}`, {
                                           method: 'DELETE',
                                           headers: {
                                                  'X-CSRF-TOKEN': '{{ csrf_token() }}',
