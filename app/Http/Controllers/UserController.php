@@ -28,7 +28,7 @@ class UserController extends BaseController {
        public function get_all_game_list(Request $request) {
    header("Access-Control-Allow-Origin: *");
 
-              $user = Mdl_games::inRandomOrder()->orderBy('game_id', 'desc')->get();
+              $user = Mdl_games::orderBy('game_id', 'desc')->get();
 
               return $this->sendResponse(1, 'Game List successfully', $user);
        }
@@ -54,7 +54,7 @@ class UserController extends BaseController {
    header("Access-Control-Allow-Origin: *");
 
 
-              $user = Mdl_games::where('category_id', $request->category_id)->inRandomOrder()->orderBy('game_id', 'desc')->get();
+              $user = Mdl_games::where('category_id', $request->category_id)->orderBy('game_id', 'desc')->get();
 
               return $this->sendResponse(1, 'Game List successfully', $user);
        }
@@ -85,7 +85,7 @@ class UserController extends BaseController {
        public function get_home_game_list(Request $request) {
    header("Access-Control-Allow-Origin: *");
 
-              $user = Mdl_games::inRandomOrder()->orderBy('game_id', 'desc')->get();
+              $user = Mdl_games::orderBy('game_id', 'desc')->get();
 
               return $this->sendResponse(1, 'Game List successfully', $user);
        }
@@ -93,7 +93,7 @@ class UserController extends BaseController {
        public function get_recommended_game_list(Request $request) {
    header("Access-Control-Allow-Origin: *");
 
-              $user = Mdl_games::where('is_recommended', 1)->inRandomOrder()->orderBy('game_id', 'desc')->limit(10)->get();
+              $user = Mdl_games::where('is_recommended', 1)->orderBy('game_id', 'desc')->limit(10)->get();
 
               return $this->sendResponse(1, 'Game List successfully', $user);
        }      
@@ -101,7 +101,7 @@ class UserController extends BaseController {
        public function get_popular_game_list(Request $request) {
    header("Access-Control-Allow-Origin: *");
 
-              $user = Mdl_games::where('is_popular', 1)->inRandomOrder()->orderBy('game_id', 'desc')->limit(10)->get();
+              $user = Mdl_games::where('is_popular', 1)->orderBy('game_id', 'desc')->limit(10)->get();
 
               return $this->sendResponse(1, 'Game List successfully', $user);
        }      
@@ -109,7 +109,7 @@ class UserController extends BaseController {
        public function get_trending_game_list(Request $request) {
    header("Access-Control-Allow-Origin: *");
 
-              $user = Mdl_games::where('is_trending', 1)->inRandomOrder()->orderBy('game_id', 'desc')->limit(10)->get();
+              $user = Mdl_games::where('is_trending', 1)->orderBy('game_id', 'desc')->limit(10)->get();
 
               return $this->sendResponse(1, 'Game List successfully', $user); 
        }      
@@ -117,7 +117,7 @@ class UserController extends BaseController {
        public function get_new_game_list(Request $request) {
    header("Access-Control-Allow-Origin: *");
 
-              $user = Mdl_games::inRandomOrder()->orderBy('game_id', 'desc')->limit(10)->get();
+              $user = Mdl_games::orderBy('game_id', 'desc')->limit(10)->get();
 
               return $this->sendResponse(1, 'Game List successfully', $user);
        }      
